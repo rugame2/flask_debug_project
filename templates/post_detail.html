@@ -2,20 +2,23 @@
 
 {% block content %}
 
-<a href="{{ url_for('Rome') }}"><button class="btn btn-primary">Back to Home</button></a>
+    <a href="{{ url_for('Home') }}">
+      <button class="btn btn-primary">Back to Home</button>
+    </a>
 
 <div class="container">
     <h1>This post belongs to : {{ post_detail.author.username }}</h1>
 
     <h3>Content:</h3>
     <hr>
-    <h3>Title: {{ post_detail.title }}</h3>
-    <p> {{ post_detail.content }}</p>
+    <h3>Title: {{ post.title }}</h3>
+    <p> {{ post.content }}</p>
 
-    <blockquote>Date Created: {{ post_detail.date_created }}</blockquote>
+    <blockquote>Date Created: {{ post.date_created }}</blockquote>
 
     <!--Update Button-->
-    <a href="{{ url_for('post_update', post_id = post.id ) }}"><button class="btn btn-primary">Update</button></a>
+    <a href="{{ url_for('post_update', post_id = post.id ) }}"><button class="btn btn-primary">Update</button>
+    </a>
 
     <!--Delete Button-->
     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#dangerModal">Delete Post</button>
@@ -39,9 +42,8 @@
                       <input type="submit" value="Delete?" class="btn btn-danger">
                   </form>
                 </div>
-              </div>
             </div>
           </div>
-</div>
+        </div>
 
 {% endblock content %}
